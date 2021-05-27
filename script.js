@@ -18,8 +18,8 @@ function init() {
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1,1,1)
     var aspect = window.innerWidth / window.innerHeight;
-    var d = 20;
-    camera = new THREE.OrthographicCamera( - d * aspect, d * aspect, d, - d, -10000, 10000 );
+    var d = 300;
+    camera = new THREE.OrthographicCamera( - d * aspect, d * aspect, d, - d, -20000, 20000 );
     
     camera.position.set( 20, 20, 20 ); // all components equal
     camera.lookAt( scene.position ); // or the origin
@@ -33,8 +33,8 @@ function init() {
 
     const directionalLight = new THREE.DirectionalLight( 0xffffff )
     directionalLight.position.set( 0, 0, 2 )
-    directionalLight.castShadow = true
-    directionalLight.intensity = 2
+    directionalLight.castShadow = false
+    directionalLight.intensity = 3
     scene.add( directionalLight )
 
     raycaster = new THREE.Raycaster()
@@ -83,7 +83,7 @@ function onClick( event ) {
         const object = intersects[0].object
         console.log(object) // debug
 
-        object.material.color.set( 'yellow' )
+        object.material.color.set( 'orange' )
 
         // get user strings
         let data, count
